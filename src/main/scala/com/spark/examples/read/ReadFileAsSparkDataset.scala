@@ -1,7 +1,7 @@
-package com.spark.dataframe.examples.read
+package com.spark.examples.read
 
-import com.spark.dataframe.dto.RandomTestDTO
-import com.spark.dataframe.utils.SchemaModification
+import com.spark.dto.RandomTestDTO
+import com.spark.utils.SchemaModification
 import dto.RandomTestJavaDTO
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{Dataset, Encoder, Encoders, SparkSession}

@@ -1,4 +1,4 @@
-package com.spark.dataframe.utils
+package com.spark.utils
 
 import org.apache.spark.sql.types.{StructType,StructField}
 

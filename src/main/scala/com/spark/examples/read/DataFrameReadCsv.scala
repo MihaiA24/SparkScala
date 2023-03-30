@@ -1,6 +1,6 @@
-package com.spark.dataframe.examples.read
+package com.spark.examples.read
 
-import com.spark.dataframe.utils.ResourceStructType
+import com.spark.utils.ResourceStructType
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
 

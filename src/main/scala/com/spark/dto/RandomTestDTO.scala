@@ -1,4 +1,4 @@
-package com.spark.dataframe.dto
+package com.spark.dto
 
 import java.sql.Timestamp
 
