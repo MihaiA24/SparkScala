@@ -38,5 +38,15 @@ object ResourceStructType {
       .add("ZipCodeType", StringType, nullable = true)
   }
 
+  def ZipCodeMultiLineSchema: StructType = {
+    StructType(Array(
+      StructField("RecordNumber", IntegerType, nullable = true),
+      StructField("Zipcode", IntegerType, nullable = true),
+      StructField("ZipCodeType", StringType, nullable = true),
+      StructField("City", StringType, nullable = true),
+      StructField("State", StringType, nullable = true)
+    ))
+  }
+
 
 }

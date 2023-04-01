@@ -36,18 +36,18 @@ object DataFrameReadJson {
     df.printSchema() // Spark auto inferSchema (may be incorrectly)
     df3.show(false)
 
-    // Read JSON with schema
-    val zipCodeSchema : StructType = ResourceStructType.ZipCodesJsonStructType
+    // Read Multile JSON with schema
+    val zipCodeSchema : StructType = ResourceStructType.ZipCodeMultiLineSchema
     val dfWithSchema : DataFrame = spark.read
       .option("multiline", value = true)
-      .schema(schema = zipCodeSchema)
-      .json(basePath + "zipcodes.json")
+      .schema(schema = zipCodeSchema) // Json Data can also be read with a specific schema
+      .json(basePath + "multiline-zipcode.json")
 
     dfWithSchema.printSchema()
     dfWithSchema.show()
 
     // Create and read temporary view
-    spark.sqlContext.sql("CREATE TEMPORARY VIEW zipcode USING json OPTIONS (path 'src/main/resources/zipcodes.json')")
+    spark.sqlContext.sql("CREATE TEMPORARY VIEW zipcode USING json OPTIONS (path 'src/main/resources/json/zipcodes.json')")
     // TODO: No lee correctamente multilineas, se puede hacer en el SQL CONTEXT?
     spark.sqlContext.sql("SELECT * FROM zipcode").show()
     spark.sqlContext.sql("SELECT * FROM zipcode WHERE City = 'MESA' ").show()
