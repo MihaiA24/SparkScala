@@ -14,7 +14,7 @@ object DataFrameReadCsv {
 
     spark.sparkContext.setLogLevel("ERROR") // Clean data output
 
-    val filePath = "src/main/resources/csv/stream.csv"
+    val filePath = "spark/src/main/resources/csv/stream.csv"
 
     val streamSchema: StructType = ResourceStructType.StreamCsvStructType
     // Read CSV Method 1

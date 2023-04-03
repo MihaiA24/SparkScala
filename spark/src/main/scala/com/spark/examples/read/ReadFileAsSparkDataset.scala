@@ -14,7 +14,7 @@ object ReadFileAsSparkDataset {
       .getOrCreate()
     spark.sparkContext.setLogLevel("ERROR")
 
-    val path: String = "src/main/resources/csv/random/random_1M.csv"
+    val path: String = "spark/src/main/resources/csv/random/random_1M.csv"
 
     // Schema can be created in multiple ways
 

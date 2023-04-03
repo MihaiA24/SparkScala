@@ -6,7 +6,7 @@ import java.io.File
 
 object DatabaseConfig {
   def apply: DatabaseConfig = {
-    val appConfig = ConfigFactory.parseFile(new File("src/main/conf/database.conf"))
+    val appConfig = ConfigFactory.parseFile(new File("spark/src/main/conf/database.conf"))
     DatabaseConfig(
       PostgresSqlConfig(
         url = appConfig.getString("postgres.url"),

@@ -1,4 +1,6 @@
 .idea
 target
-project/target
+spark/build
 .bsp
+.gradle
+spark/src/main/resources/csv/random

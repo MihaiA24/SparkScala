@@ -17,7 +17,7 @@ object ParsingJsonStringAsCols {
 
     // In this cases, lets supose our data came other source like a Database and the JSON came as plain text
     val df = spark.read
-      .text("src/main/resources/json/zipcodes.json")
+      .text("spark/src/main/resources/json/zipcodes.json")
 
     df.printSchema()
     df.show()
@@ -42,7 +42,7 @@ object ParsingJsonStringAsCols {
     df16.show()
     // If we want to read from an array of json
     val dfArray = spark.read
-      .text("src/main/resources/json/zipcodes_array.json")
+      .text("spark/src/main/resources/json/zipcodes_array.json")
 
     dfArray.printSchema()
     dfArray.show(false)

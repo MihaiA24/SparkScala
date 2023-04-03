@@ -14,7 +14,7 @@ object DataFrameReadJson {
       .getOrCreate()
     spark.sparkContext.setLogLevel("ERROR")
 
-    val basePath : String = "src/main/resources/json/"
+    val basePath : String = "spark/src/main/resources/json/"
 
     // Read simple JSON
     val df : DataFrame = spark.read
@@ -47,7 +47,7 @@ object DataFrameReadJson {
     dfWithSchema.show()
 
     // Create and read temporary view
-    spark.sqlContext.sql("CREATE TEMPORARY VIEW zipcode USING json OPTIONS (path 'src/main/resources/json/zipcodes.json')")
+    spark.sqlContext.sql("CREATE TEMPORARY VIEW zipcode USING json OPTIONS (path 'spark/src/main/resources/json/zipcodes.json')")
     // TODO: No lee correctamente multilineas, se puede hacer en el SQL CONTEXT?
     spark.sqlContext.sql("SELECT * FROM zipcode").show()
     spark.sqlContext.sql("SELECT * FROM zipcode WHERE City = 'MESA' ").show()
