@@ -1,5 +1,6 @@
 package com.spark.examples.read
 
+import com.spark.SparkApp
 import com.spark.utils.ResourceStructType
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
@@ -7,12 +8,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 object DataFrameReadCsv {
   def main(array: Array[String]): Unit = {
 
-    val spark: SparkSession = SparkSession.builder()
-      .master("local")
-      .appName("DataFrameUsingCsv")
-      .getOrCreate()
-
-    spark.sparkContext.setLogLevel("ERROR") // Clean data output
+    val spark: SparkSession = SparkApp.createSparkSession("DataFrameReadCsv")
 
     val filePath = "spark/src/main/resources/csv/stream.csv"
 

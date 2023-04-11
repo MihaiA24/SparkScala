@@ -1,5 +1,6 @@
 package com.spark.examples.read
 
+import com.spark.SparkApp
 import com.spark.dto.RandomTestDTO
 import com.spark.utils.SchemaModification
 import dto.RandomTestJavaDTO
@@ -8,11 +9,7 @@ import org.apache.spark.sql.{Dataset, Encoder, Encoders, SparkSession}
 
 object ReadFileAsSparkDataset {
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
-      .master("local")
-      .appName("ReadFileAsSparkDataSet")
-      .getOrCreate()
-    spark.sparkContext.setLogLevel("ERROR")
+    val spark: SparkSession = SparkApp.createSparkSession("ReadFileAsSparkDataset")
 
     val path: String = "spark/src/main/resources/csv/random/random_1M.csv"
 

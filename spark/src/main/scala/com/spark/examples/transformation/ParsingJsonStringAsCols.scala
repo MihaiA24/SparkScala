@@ -1,19 +1,15 @@
 package com.spark.examples.transformation
 
+import com.spark.SparkApp
 import com.spark.dto.ZipCode
 import com.spark.utils.JsonUtils
-import org.apache.spark.sql.functions.{col, from_json, get_json_object, lit, udf}
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{ArrayType, StructType}
 import org.apache.spark.sql.{Encoder, Encoders, SparkSession, functions}
 
 object ParsingJsonStringAsCols {
   def main(args: Array[String]): Unit = {
-    val spark: SparkSession = SparkSession.builder()
-      .master("local")
-      .appName("ParsingJsonAsObject")
-      .getOrCreate()
-
-    spark.sparkContext.setLogLevel("ERROR") // Clean data output
+    val spark: SparkSession = SparkApp.createSparkSession("ParsingJsonStringAsCols")
 
     // In this cases, lets supose our data came other source like a Database and the JSON came as plain text
     val df = spark.read

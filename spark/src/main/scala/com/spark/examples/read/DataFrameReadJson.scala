@@ -1,18 +1,15 @@
 package com.spark.examples.read
 
+import com.spark.SparkApp
 import com.spark.utils.ResourceStructType
-import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.types.StructType
 
 object DataFrameReadJson {
 
   def main(array: Array[String]): Unit = {
 
-    val spark: SparkSession = SparkSession.builder()
-      .master("local")
-      .appName("DataFrameReadJson")
-      .getOrCreate()
-    spark.sparkContext.setLogLevel("ERROR")
+    val spark: SparkSession = SparkApp.createSparkSession("DataFrameReadJson")
 
     val basePath : String = "spark/src/main/resources/json/"
 
